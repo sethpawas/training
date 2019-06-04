@@ -1,13 +1,14 @@
 package main
 
 import (
-	"os"
 	"encoding/json"
 	"fmt"
 	"github.com/perennial-go-training/training/19_protocol_buffers/json"
+	"os"
+	student "training/19_protocol_buffers/json"
 )
 
-func main () {
+func main() {
 	s1 := student.Student{
 		"a",
 		"b",
@@ -17,7 +18,7 @@ func main () {
 	var s2 student.Student
 
 	f, _ := os.Create("./student.json")
-	encoder := json.NewEncoder(f)
+	encoder := json.NewEncoder(f) //for stream marshal for having it in that instacnce
 	encoder.Encode(&s1)
 
 	f, _ = os.Open("student.json")

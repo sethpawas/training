@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/sethpawas/training/20_grpc/calculatorpb/proto"
+	//"github.com/sethpawas/training/grpcnew/fibonaccipb/proto"
 	"google.golang.org/grpc"
 	"io"
 	"log"
@@ -18,6 +18,7 @@ func Start(port string) {
 
 	ctx := context.Background()
 	client := calculatorpb.NewCalculatorServiceClient(cc)
+
 	// UNARY
 	fmt.Println("Unary Request")
 	var n int32 = 5
@@ -26,6 +27,7 @@ func Start(port string) {
 	})
 
 	fmt.Println("Square of ", n, "is", resSquare.GetResult())
+
 	// SERVER STREAMING
 	fmt.Println("Prime Factors")
 	n = 120
@@ -45,6 +47,7 @@ func Start(port string) {
 			fmt.Println(resPF.GetResult())
 		}
 	}
+
 	// CLIENT STREAMING
 	fmt.Println("Average")
 
