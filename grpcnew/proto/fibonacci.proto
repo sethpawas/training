@@ -20,10 +20,9 @@ int32 result = 1;
 //int32 result = 1;
 //string type = 2;
 //}
-
 service CalculatorService {
 // Unary
-//rpc Square (CalculatorRequest) returns (CalculatorResponse) {};
+//rpc FibonacciSeries (Request) returns (FibonacciResponse) {};
 
 // Server Streaming
 rpc FibonacciSeries (Request) returns (stream FibonacciResponse) {};
