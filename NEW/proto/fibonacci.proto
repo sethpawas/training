@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package grpcnew;
+package fibonacci;
 
 option go_package = "fibonaccipb";
 
@@ -20,14 +20,14 @@ int32 result = 1;
 //int32 result = 1;
 //string type = 2;
 //}
-service CalculatorService {
+service FibonacciService {
 // Unary
 //rpc FibonacciSeries (Request) returns (FibonacciResponse) {};
 
 // Server Streaming
 rpc FibonacciSeries (Request) returns (stream FibonacciResponse) {};
 
-// Client Streaming
+// Client StreamingFibonacciSeries
 //rpc Average (stream CalculatorRequest) returns (CalculatorAverageResponse) {};
 
 // BiDirectional Streaming

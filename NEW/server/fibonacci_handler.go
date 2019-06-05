@@ -11,11 +11,21 @@ type Fibonacci_Handler struct{}
 func (ch *Fibonacci_Handler) FibonacciSeries(ctx context.Context, request *proto.Request) (*proto.FibonacciResponse, error) {
 	response := &proto.FibonacciResponse{}
 
-	var a, b int32
-	fmt.Println("Enter Two numbers")
-	fmt.Scan(&a, &b)
+	var n int32
+	fmt.Println("Enter Number")
+	fmt.Scan(&n)
 
-	response.Result = a * b
+	f := make([]int, n+1, n+2)
+	if n < 2 {
+		f = f[0:2]
+	}
+	f[0] = 0
+	f[1] = 1
+	for i := 2; int32(i) <= n; i++ {
+		f[i] = f[i-1] + f[i-2]
+	}
+
+	response.Result = int32(f[n])
 
 	return response, nil
 }

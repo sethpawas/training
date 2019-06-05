@@ -1,11 +1,12 @@
 package client
 
 import (
+	"context"
 	"fmt"
-	"github.com/sethpawas/training/NEW/calculatorpb/proto"
 	"google.golang.org/grpc"
 	"io"
 	"log"
+	fibonaccipb "training/NEW/fibonaccipb/proto"
 )
 
 func Start(port string) {
@@ -15,11 +16,14 @@ func Start(port string) {
 	}
 	defer cc.Close()
 
+	ctx := context.Background()
+	client := fibonaccipb.NewFibonacciServiceClient(cc)
+
 	// SERVER STREAMING
 	fmt.Println("Fibonacci Series")
-	n = 120
-	stream, err := client.FibonacciSeries(ctx, &calculatorpb.CalculatorRequest{
-		Number: n,
+	n := 120
+	stream, err := client.FibonacciSeries(ctx, &fibonaccipb.Request{
+		Number: int32(n),
 	})
 	if err != nil {
 		log.Fatal(err)

@@ -1,16 +1,19 @@
 package main
 
 import (
-	"server"
 	"time"
-	"training/20_grpc/client"
+	"training/NEW/client"
+	"training/NEW/server"
 )
 
 func serv() {
-	server.Start("50051")
+
 }
 func main() {
-	go serv()
+
+	go func() {
+		server.Start("50051")
+	}()
 	time.Sleep(2 * time.Second)
 	client.Start("50051")
 }

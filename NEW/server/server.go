@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/perennial-go-training/training/20_grpc/calculatorpb/proto"
+	"github.com/sethpawas/training/NEW/fibonaccipb/proto"
 	"google.golang.org/grpc"
 	"log"
 	"net"
