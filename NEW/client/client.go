@@ -2,7 +2,7 @@ package client
 
 import (
 	"fmt"
-	"github.com/sethpawas/training/20_grpc/calculatorpb/proto"
+	"github.com/sethpawas/training/NEW/calculatorpb/proto"
 	"google.golang.org/grpc"
 	"io"
 	"log"
